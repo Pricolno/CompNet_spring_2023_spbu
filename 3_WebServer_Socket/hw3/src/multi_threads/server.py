@@ -62,7 +62,7 @@ class HTTPServer:
 Активны {threading.active_count()} / {self._concurrencyLevel}. \
 В очереди {self._q.qsize()}.")
 
-        time.sleep(5)
+        time.sleep(10)
         try:
             nameFile = self.parseRequest(clientSocket, addr)
 
@@ -70,14 +70,14 @@ class HTTPServer:
             self.sendResponse(clientSocket=clientSocket,
                                 response=response)
 
-            if self._verbose:
-                print(f"Запрос от (ip, addr)={addr} выполнен! \
-Активны {threading.active_count() - 1} / {self._concurrencyLevel}. \
-В очереди {self._q.qsize()}.")
         except:
             if self._verbose:
                 print("Пустой запрос от браузера!")
             
+        if self._verbose:
+            print(f"Запрос от (ip, addr)={addr} выполнен! \
+Активны {threading.active_count() - 1} / {self._concurrencyLevel}. \
+В очереди {self._q.qsize()}.")
         clientSocket.close()
 
 
