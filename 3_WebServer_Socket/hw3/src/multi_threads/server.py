@@ -2,6 +2,7 @@ import socket
 import os 
 import threading
 from queue import Queue
+import sys
 
 import time
 
@@ -62,7 +63,7 @@ class HTTPServer:
 Активны {threading.active_count()} / {self._concurrencyLevel}. \
 В очереди {self._q.qsize()}.")
 
-        time.sleep(10)
+        time.sleep(3)
         try:
             nameFile = self.parseRequest(clientSocket, addr)
 
@@ -178,10 +179,13 @@ class HTTPServer:
         socketFile.flush()
         socketFile.close()  
 
+# py .\server.py 127.0.0.1 65432
 
 if __name__ == "__main__":
-    HOST = "127.0.0.1"
-    PORT = 65432
+    # HOST = "127.0.0.1"
+    # PORT = 65432
+    HOST = sys.argv[1]
+    PORT = int(sys.argv[2])
 
     server = HTTPServer(host=HOST,
                         port=PORT,
