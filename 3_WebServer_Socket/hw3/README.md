@@ -4,6 +4,9 @@
 
 * А. Однопоточный веб-сервер (3 балла)
 
+    + `./src/single_thread`
+    + ![](./images/single_thread_not_found.png)
+    + ![](./images/single_thread_found.png)
 
 
 * Б. Многопоточный веб-сервер (2 балла) 

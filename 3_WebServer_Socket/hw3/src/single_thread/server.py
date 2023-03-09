@@ -31,7 +31,7 @@ class HTTPServer:
                     clientSocket.close()
                     continue
 
-                print(nameFile)
+                # print(nameFile)
                 response = self.createResponse(nameFile=nameFile)
                 self.sendResponse(clientSocket=clientSocket,
                                     response=response)
@@ -94,7 +94,7 @@ class HTTPServer:
             return response
         else:
             status, statusStr = 404, 'Not found'
-            body = '404 Not Found'
+            body = b'404 Not Found'
             headers = {'Content-Type': content_type,
                         'Content-Length': len(body)
                         }
