@@ -184,12 +184,14 @@ class HTTPServer:
 if __name__ == "__main__":
     # HOST = "127.0.0.1"
     # PORT = 65432
+    # CONCURRENCY_LEVEL = 3
     HOST = sys.argv[1]
     PORT = int(sys.argv[2])
+    CONCURRENCY_LEVEL = int(sys.argv[3])
 
     server = HTTPServer(host=HOST,
                         port=PORT,
-                        concurrencyLevel=3,
+                        concurrencyLevel=CONCURRENCY_LEVEL,
                         verbose=True)
     
     server.run()
